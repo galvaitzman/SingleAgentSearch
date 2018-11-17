@@ -43,6 +43,9 @@ public class Main
 	{
 		System.out.println("---------- Task 3 -----------");
 		List<ASearch> 		solvers 	= new ArrayList<ASearch>();
+
+
+
 		UniformCostSearch 	ucs 		= new UniformCostSearch();
 		solvers.add(ucs);
 		solveInstances(solvers, "tile3x3");
