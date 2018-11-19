@@ -13,15 +13,14 @@ public class Main
 		System.out.println("Start!");
 		//task1();
 		//task2();
-		task3();
+		//task3();
 		//task4();
 		//task5();
-		//task6(); git commit -m "<msg>"
-		//check
+		//task6();
 		System.out.println("");
 		System.out.println("Done!");
 	}
-	
+
 	public static void task1()
 	{
 		System.out.println("---------- Task 1 ----------");
