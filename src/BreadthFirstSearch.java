@@ -73,7 +73,4 @@ public class BreadthFirstSearch  extends ASearch
 	{
 		return openList.poll();
 	}
-
-
-
 }
