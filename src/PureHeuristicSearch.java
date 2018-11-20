@@ -61,7 +61,6 @@ public class PureHeuristicSearch  extends ASearch
 	public void addToOpen(ASearchNode node)
 	{
 		openList.add(node);
-
 	}
 
 	@Override
