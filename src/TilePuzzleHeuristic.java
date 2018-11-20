@@ -12,7 +12,6 @@ public class TilePuzzleHeuristic implements IHeuristic {
 			for (int column = 0; column < size; column+=1) {
 				int value = tilePuzzleState._tilePuzzle[row][column];
 				expected++;
-
 				if (value != 0 && value != expected) {
 					// Manhattan distance is the sum of the absolute values of
 					// the horizontal and the vertical distance

@@ -53,7 +53,7 @@ public class UniformCostSearch   extends ASearch
 	@Override
 	public boolean isClosed(ASearchNode node)
 	{
-		return false;
+		return closeList.contains(node);
 	}
 
 	@Override
