@@ -16,9 +16,31 @@ public class Main
 		//task3();
 		//task4();
 		//task5();
-		task6();
+		//task6();
 		System.out.println("");
 		System.out.println("Done!");
+
+
+		double heuristicNumber = 0;
+		int[][] tilePuzzleState = {{2,5,4,7},{9,1,6,8},{0,10,3,11},{13,14,15,12}};
+		int expected = 0;
+		int size= tilePuzzleState.length;
+		for (int row = 0; row < size; row+=1) {
+			for (int column = 0; column < size; column+=1) {
+				int value = tilePuzzleState[row][column];
+				expected++;
+				if (value != 0 && value != expected) {
+					// Manhattan distance is the sum of the absolute values of
+					// the horizontal and the vertical distance
+					heuristicNumber += value * (Math.abs(row
+							- getRow(getFinalState(size), value))
+							+ Math.abs(column
+							- getCol(getFinalState(size), value)));
+				}
+			}
+		}
+		System.out.println(heuristicNumber);
+
 	}
 
 	public static void task1()
@@ -43,9 +65,6 @@ public class Main
 	{
 		System.out.println("---------- Task 3 -----------");
 		List<ASearch> 		solvers 	= new ArrayList<ASearch>();
-
-
-
 		UniformCostSearch 	ucs 		= new UniformCostSearch();
 		solvers.add(ucs);
 		solveInstances(solvers, "tile3x3");
@@ -177,4 +196,47 @@ public class Main
 			System.out.println(currentState);
 		}
 	}
+
+
+	// helper to get a board in final state
+	public static int[][] getFinalState(int size) {
+		int[][] finalArray = new int[size][size];
+		int value = 0;
+
+		for (int row = 0; row < size; row++) {
+			for (int col = 0; col < size; col++) {
+				value++;
+				if ((col + 1 == size) && (row + 1 == size)) {
+					finalArray[row][col] = 0;
+				} else {
+					finalArray[row][col] = value;
+				}
+			}
+		}
+		return  finalArray;
+	}
+	// helper to get the row of a value.
+	public static int getRow(int[][] a, int value) {
+		for (int row = 0; row < a.length; row++) {
+			for (int col = 0; col < a[row].length; col++) {
+				if (a[row][col] == value) {
+					return row;
+				}
+			}
+		}
+		return -1;
+	}
+
+	// helper to get the column of a value.
+	public static int getCol(int[][] a, int value) {
+		for (int row = 0; row < a.length; row++) {
+			for (int col = 0; col < a[row].length; col++) {
+				if (a[row][col] == value) {
+					return col;
+				}
+			}
+		}
+		return -1;
+	}
+
 }
