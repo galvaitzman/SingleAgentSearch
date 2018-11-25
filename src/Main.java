@@ -51,7 +51,7 @@ public class Main
 		for (String id : ids)
 			System.out.print(id + " | ");
 	}
-	
+	//c
 	public static void task2()
 	{
 		System.out.println("---------- Task 2 ----------");
